@@ -1,24 +1,40 @@
-import java.util.Scanner;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.regex.Pattern;
 
- public class Recitation3 {
+class Recitation3Test extends OutputTest{
+    @Test
+    @DisplayName("[1] 1st test of main")
+    void test_main_1() {
+        setTestInput("12\n14");
+        Recitation3.main(new String[]{});
+        String expected = "Enter x:\n" +
+                "Enter y:\n" +
+                "ture\n";
+        String actual = getTestOutput();
+        String message = "Test Failed!\nExpecting:\n"+expected+"\nActual:\n"+actual;
+        expected = "^"+expected+"$";
+        assertTrue(Pattern.compile(expected.replaceAll("\\s",""))
+                        .matcher(actual.replaceAll("\\s","")).find(),
+                message);
 
-    public static void main(String[] argv) {
-        Scanner scan = new Scanner(System.in);
+    }
 
-        System.out.print("Enter x:");
-        double x = scan.nextDouble();
+    @Test
+    @DisplayName("[1] 2nd test of main")
+    void test_main_2() {
+        setTestInput("200\n300");
+        Recitation3.main(new String[]{});
+        String expected = "Enter x:\n" +
+                "Enter y:\n" +
+                "false\n";
+        String actual = getTestOutput();
+        String message = "Test Failed!\nExpecting:\n"+expected+"\nActual:\n"+actual;
+        expected = "^"+expected+"$";
+        assertTrue(Pattern.compile(expected.replaceAll("\\s",""))
+                        .matcher(actual.replaceAll("\\s","")).find(),
+                message);
 
-        System.out.print("Enter y:");
-        double y = scan.nextDouble();
-
-        Point sixteen = new Point(x, y);
-        Point forty = new Point( 14.0,  12.0);
-        Circle circle16 = new Circle(sixteen, 16.0);
-
-        Circle circle40 = new Circle( forty ,40.0);
-
-        boolean result = circle16.intersects(circle40);
-
-        System.out.println(result);
     }
 }
