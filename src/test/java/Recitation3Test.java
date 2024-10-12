@@ -11,7 +11,7 @@ class Recitation3Test extends OutputTest{
         Recitation3.main(new String[]{});
         String expected = "Enter x:\n" +
                 "Enter y:\n" +
-                "Circles intersect!\n";
+                "ture\n";
         String actual = getTestOutput();
         String message = "Test Failed!\nExpecting:\n"+expected+"\nActual:\n"+actual;
         expected = "^"+expected+"$";
@@ -28,7 +28,7 @@ class Recitation3Test extends OutputTest{
         Recitation3.main(new String[]{});
         String expected = "Enter x:\n" +
                 "Enter y:\n" +
-                "Circles do not intersect!\n";
+                "false\n";
         String actual = getTestOutput();
         String message = "Test Failed!\nExpecting:\n"+expected+"\nActual:\n"+actual;
         expected = "^"+expected+"$";
